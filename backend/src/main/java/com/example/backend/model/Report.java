@@ -43,7 +43,7 @@ public void setDateTime(String dateTime){
 }
 
 public void setDesc(String Desc){
-    this.Desc = Desc;
+    this.desc = Desc;
 }
 
 }

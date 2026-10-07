@@ -1,7 +1,7 @@
-package com.example.backend.service;
+package com.example.backend.Service;
 
 import com.example.backend.model.Report;
-import com.example.backend.repository.ReportRepository;
+import com.example.backend.Repository.ReportRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.http.HttpStatus;
@@ -19,16 +19,16 @@ public class ReportService {
     public List<Report> getAllReports(){
         return repository.findAll();
     }
-    public Report getReportedId(Long id){
-        return repository.findById(Id).orElse(null);
+    public Report getReportById(Long id){
+        return repository.findById(id).orElse(null);
     }
     public void deleteReport(Long id){
         repository.deleteById(id);
     }
 
-}
+
 public Report updateReport(long id, Report newReport){
-    Report existingReport = repository.findById(id).orElseThro(() -> new ResponseStatusException(
+    Report existingReport = repository.findById(id).orElseThrow(() -> new ResponseStatusException(
         HttpStatus.NOT_FOUND, "Report not found"));
     if(newReport.getLoc() != null)
     existingReport.setLoc(newReport.getLoc());
@@ -42,4 +42,5 @@ public Report updateReport(long id, Report newReport){
     if(newReport.getDesc() != null)
     existingReport.setDesc(newReport.getDesc());
 return repository.save(existingReport);
+}
 }
