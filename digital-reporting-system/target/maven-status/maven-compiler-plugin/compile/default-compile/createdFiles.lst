@@ -1,0 +1,12 @@
+com\example\backend\dto\ReportRequest.class
+com\example\backend\dto\RegisterRequest.class
+com\example\backend\config\AppConfig.class
+com\example\backend\dto\LoginRequest.class
+com\example\backend\controller\AuthController.class
+com\example\backend\DigitalCrimeReportingApplication.class
+com\example\backend\model\User.class
+com\example\backend\model\Report.class
+com\example\backend\repository\UserRepository.class
+com\example\backend\controller\ReportController.class
+com\example\backend\repository\ReportRepository.class
+com\example\backend\controller\DashboardController.class

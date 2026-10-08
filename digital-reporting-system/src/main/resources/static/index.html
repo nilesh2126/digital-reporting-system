@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Digital Crime Reporting System</title><link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="topbar"><div><div class="brand">Digital Crime Reporting</div><div class="subbrand">Public safety complaint portal</div></div><div id="userArea"></div></header>
+<main class="container">
+  <section class="notice"><strong>Emergency?</strong> If someone is in immediate danger in India, call <strong>112</strong>. This website is not an emergency response service and submitting a report does not automatically register an FIR.</section>
+  <section id="authPanel" class="panel">
+    <div class="tabs"><button class="tab active" data-tab="login">Log in</button><button class="tab" data-tab="register">Create citizen account</button></div>
+    <form id="loginForm" class="form">
+      <h2>Welcome back</h2><label>Username<input name="username" required autocomplete="username"></label>
+      <label>Password<input name="password" type="password" required autocomplete="current-password"></label><button class="primary" type="submit">Log in</button>
+    </form>
+    <form id="registerForm" class="form hidden">
+      <h2>Create citizen account</h2><label>Username<input name="username" minlength="3" required autocomplete="username"></label>
+      <label>Email<input name="email" type="email" required autocomplete="email"></label>
+      <label>Password (at least 8 characters)<input name="password" type="password" minlength="8" required autocomplete="new-password"></label>
+      <button class="primary" type="submit">Register</button>
+    </form>
+    <p id="authMessage" class="message" role="status"></p>
+  </section>
+  <section id="appPanel" class="hidden">
+    <div class="welcome"><div><h1 id="welcomeTitle">Dashboard</h1><p id="roleText" class="muted"></p></div><button id="logoutBtn" class="secondary">Log out</button></div>
+    <div class="stats"><div class="stat"><span>Total reports</span><strong id="totalCount">0</strong></div><div class="stat"><span>Pending</span><strong id="pendingCount">0</strong></div><div class="stat"><span>Resolved</span><strong id="resolvedCount">0</strong></div></div>
+    <section id="newReportPanel" class="panel">
+      <h2>Submit a report</h2><p class="muted">Share accurate details. Do not include unnecessary sensitive personal information.</p>
+      <form id="reportForm" class="form grid">
+        <label>Incident category<select name="eventType" required><option value="">Choose a category</option><option>Theft</option><option>Fraud / Cybercrime</option><option>Harassment</option><option>Assault</option><option>Missing person</option><option>Traffic incident</option><option>Public safety</option><option>Other</option></select></label>
+        <label>Date and time of incident<input name="dateTime" type="datetime-local" required></label>
+        <label class="full">Location<input name="loc" maxlength="500" placeholder="Area, street, landmark, city" required></label>
+        <label class="full">Description<textarea name="description" rows="5" maxlength="5000" placeholder="What happened? Include relevant facts." required></textarea></label>
+        <div class="full"><button class="primary" type="submit">Submit report</button></div>
+      </form><p id="reportMessage" class="message" role="status"></p>
+    </section>
+    <section class="panel">
+      <div class="listHeader"><h2>Reports</h2><div class="filters"><select id="statusFilter" aria-label="Filter by status"><option value="">All statuses</option><option>PENDING</option><option>UNDER_REVIEW</option><option>INVESTIGATING</option><option>RESOLVED</option><option>CLOSED</option></select><button id="refreshBtn" class="secondary">Refresh</button></div></div>
+      <div id="reportsList" class="reportsList"><p class="muted">Loading reports…</p></div>
+    </section>
+  </section>
+  <footer>Digital Crime Reporting System · Demonstration project</footer>
+</main>
+<script src="/app.js"></script>
+</body></html>
